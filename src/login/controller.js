@@ -11,3 +11,12 @@ const getLogin = (req, res) => {
 module.exports = {
     getLogin,
 };
+
+pool.connect((error, client, release) => {
+    if (error) {
+        console.error("Database connection error:", error);
+        return;
+    }
+    console.log("Connected to the database");
+    release();
+});

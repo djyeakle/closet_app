@@ -2,7 +2,7 @@ const express = require("express");
 const loginRoutes = require("./src/login/routes");
 
 const app = express();
-const port = 8008;
+const port = process.env.PORT || 8008;
 
 app.use(express.json());
 const cors = require("cors");
