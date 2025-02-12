@@ -5,7 +5,7 @@ const pool = new Pool({
     password: "vbnmrno4",
     host: "localhost",
     database: "closet",
-    port: 9006,
+    port: 5432,
 });
 
 module.exports = pool;
