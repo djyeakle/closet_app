@@ -9,15 +9,15 @@ const getLogin = (req, res) => {
 };
 
 const getLoginById = (req, res) => {
-    const accountID = parseInt(req.params.id);
-    if (isNaN(accountID)) {
-        return res.status(400).json({error: "Invalid value format"});
+    const accountid = parseInt(req.params.id);
+    if(isNaN(accountid)) {
+        return res.status(400).json({error: "Invalid Value Format"});
     }
     console.log("Received AccountID");
-    pool.query(queries.getLoginById, [accountID], (error, results) => {
+    pool.query(queries.getLoginById, [accountid], (error, results) => {
         if(error){
             console.error("Database Error", error);
-            return res.status(500).json({error: "Account Not Found"});
+            return res.status(500).json({error: "Account Not Found"})
         }
         res.status(200).json(results.rows);
     });
