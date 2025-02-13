@@ -1,7 +1,7 @@
-const getLogin = "SELECT * FROM login";
+const getLogin = "select * from login";
 const getLoginById = 'select * from login where "accountID" = $1';
-const addNewLogin = "INSERT INTO login(username,password) VALUES($1,$2)";
-const updateLogin = "UPDATE login SET username = $1, password = $2 WHERE accountID = $3"
+const addNewLogin = "insert into login(username, password) values($1, $2)";
+const updateLogin = 'update login set username = $1, password = $2 where "accountID" = $3'
 
 module.exports = {
     getLogin,
