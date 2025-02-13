@@ -1,19 +1,22 @@
 const express = require("express");
+const cors = require("cors");
+
+//Routes
 const loginRoutes = require("./src/login/routes");
 
 const app = express();
-const port = process.env.PORT || 8008;
+const port = 8008;
 
 app.use(express.json());
-const cors = require("cors");
 app.use(cors ({
     origin: '*'
 }));
 
+//route
 app.get("/", (req, res) => {
-    res.send("Who will win the Super Bowl??");
+    res.send("Yay closet app!");
 });
 
-app.use("/api/v1/login", loginRoutes);
+app.use("/api/login", loginRoutes);
 
 app.listen(port, () => console.log(`running on ${port}`));
