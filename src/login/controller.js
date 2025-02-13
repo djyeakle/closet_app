@@ -23,23 +23,24 @@ const getLoginById = (req, res) => {
     });
 }
 
+//post
 const addNewLogin = (req, res) => {
     const {username,password} = req.body;
 
-    pool.query(queries.addNewLogin, [username,password],(error, results) => {
+    pool.query(queries.addNewLogin, [username,password], (error, results) => {
         if(error)throw error;
         res.status(200).json(results.rows);
-        res.status(201).send("Successfully added a new account");
     });
 };
 
+//put
 const updateLogin = (req, res) => {
+    const accountid = parseInt(req.params.id);
     const {username,password} = req.body;
 
-    pool.query(queries.updateLogin, [username,password],(error, results) => {
+    pool.query(queries.updateLogin, [accountid], [username,password], (error, results) => {
         if(error)throw error;
         res.status(200).json(results.rows);
-        res.status(201).send("Successfully updated an account");
     });
 };
 
