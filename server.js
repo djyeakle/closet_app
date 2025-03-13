@@ -22,4 +22,25 @@ app.get("/", (req, res) => {
 
 app.use("/api/login", loginRoutes);
 
+app.post("/api/authenticate", async (req, res) => {
+    const { id, username, password } = req.body;
+
+    if (!id || !username || !password) {
+        return res.status(400).json({ success: false, message: "Missing fields" });
+    }
+
+    const user = await users.findOne({ id, username });
+
+    if (!user) {
+        return res.status(401).json({ success: false, message: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password); // If using hashed passwords
+    if (!isMatch) {
+        return res.status(401).json({ success: false, message: "Invalid credentials" });
+    }
+
+    res.json({ success: true });
+});
+
 app.listen(port, () => console.log(`running on ${port}`));
