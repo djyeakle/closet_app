@@ -7,12 +7,10 @@ const loginRoutes = require("./src/login/routes");
 
 const port = 8008;
 
-//app.use(cors());
+app.use(cors());
 
 app.use(express.json());
-app.use(cors({
-    origin: '*'
-}));
+
 
 //route
 app.get("/", (req, res) => {
