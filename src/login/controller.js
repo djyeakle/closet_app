@@ -35,10 +35,12 @@ const addNewLogin = (req, res) => {
 
 //put
 const updateLogin = (req, res) => {
-    const accountid = parseInt(req.params.id);
+    const accountid = parseInt(req.params.accountID);
     const {username,password} = req.body;
 
-    pool.query(queries.updateLogin, [accountid], [username,password], (error, results) => {
+    //pool.query(queries.updateLogin, [accountid], [username,password], (error, results) => {
+      pool.query(queries.updateLogin,[username,password,accountid], (error, results) => {
+
         if(error)throw error;
         res.status(200).json(results.rows);
     });
