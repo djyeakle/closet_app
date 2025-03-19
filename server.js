@@ -4,6 +4,7 @@ const app = express();
 
 //Routes
 const loginRoutes = require("./src/login/routes");
+const clothesRoutes = require("./src/clothes/routes");
 
 const port = 8008;
 
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/login", loginRoutes);
 
-app.use("/api/clothes", loginRoutes);
+app.use("/api/clothes", clothesRoutes);
 
 app.post("/api/login/:accountID"), async (req, res) => {
     const accountID = req.params.accountID;
