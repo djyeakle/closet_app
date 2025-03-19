@@ -51,7 +51,6 @@ module.exports = {
     getLoginById,
     addNewLogin,
     updateLogin,
-    getClothes,
 };
 
 pool.connect((error, client, release) => {
