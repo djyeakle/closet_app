@@ -6,6 +6,5 @@ router.get('/', controller.getLogin);
 router.get('/:id', controller.getLoginById);
 router.post('/', controller.addNewLogin);
 router.put('/:id', controller.updateLogin);
-router.get('/', controller.getClothes);
 
 module.exports = router;

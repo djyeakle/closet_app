@@ -46,13 +46,6 @@ const updateLogin = (req, res) => {
     });
 };
 
-const getClothes = (req, res) => {
-    pool.query(queries.getClothes,(error, results) => {
-        if(error)throw error;
-        res.status(200).json(results.rows);
-    });
-};
-
 module.exports = {
     getLogin,
     getLoginById,
