@@ -51,6 +51,7 @@ module.exports = {
     getLoginById,
     addNewLogin,
     updateLogin,
+    getClothes,
 };
 
 pool.connect((error, client, release) => {
@@ -61,3 +62,10 @@ pool.connect((error, client, release) => {
     console.log("Connected to the database");
     release();
 });
+
+const getClothes = (req, res) => {
+    pool.query(queries.getClothes,(error, results) => {
+        if(error)throw error;
+        res.status(200).json(results.rows);
+    });
+};
