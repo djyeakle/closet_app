@@ -21,9 +21,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/login", loginRoutes);
 
-app.use("api/clothes", loginRoutes);
+app.use("/api/clothes", loginRoutes);
 
-app.post("api/login/:accountID"), async (req, res) => {
+app.post("/api/login/:accountID"), async (req, res) => {
     const accountID = req.params.accountID;
     const { username, password} = req.body;
 

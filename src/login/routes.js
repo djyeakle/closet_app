@@ -4,8 +4,8 @@ const controller = require('./controller');
 const router = Router();
 router.get('/', controller.getLogin);
 router.get('/:id', controller.getLoginById);
-router.get('/', controller.getClothes);
 router.post('/', controller.addNewLogin);
 router.put('/:id', controller.updateLogin);
+router.get('/', controller.getClothes);
 
 module.exports = router;
