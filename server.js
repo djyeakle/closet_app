@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors({
     origin: '*'
 }));
+app.use(express.static(path.join(__dirname, '../Frontend')));
 
 
 //route
@@ -21,7 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:username/login", (req, res) => {
-    res.send(`Welcome, ${req.params.username}!`);
+    const { username } = req.params;
+    res.sendFile(path.join(__dirname, `../Frontend/${req.params.username}Login.html`));
 });
 
 app.use("/api/login", loginRoutes);
