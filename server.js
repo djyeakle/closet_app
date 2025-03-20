@@ -6,6 +6,7 @@ const app = express();
 //Routes
 const loginRoutes = require("./src/login/routes");
 const clothesRoutes = require("./src/clothes/routes");
+const lainClothesRoutes = require("./src/lainClothes/routes");
 
 const port = 8008;
 
@@ -30,6 +31,8 @@ app.get("/:username/login", (req, res) => {
 app.use("/api/login", loginRoutes);
 
 app.use("/api/clothes", clothesRoutes);
+
+app.use("/api/lainclothes", lainClothesRoutes);
 
 app.post("/api/login/:accountID"), async (req, res) => {
     const accountID = req.params.accountID;
