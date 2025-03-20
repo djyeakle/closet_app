@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
     res.send("Yay closet app!");
 });
 
+app.get("/:username/login", (req, res) => {
+    res.send(`Welcome, ${req.params.username}!`);
+});
+
 app.use("/api/login", loginRoutes);
 
 app.use("/api/clothes", clothesRoutes);
