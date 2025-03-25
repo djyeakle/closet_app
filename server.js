@@ -1,19 +1,23 @@
+const path = require('path');
 const cors = require('cors');
+const helmet = require('helmet');
 const express = require('express');
 const app = express();
 
 //Routes
 const loginRoutes = require("./src/login/routes");
 const clothesRoutes = require("./src/clothes/routes");
+const lainClothesRoutes = require("./src/lainClothes/routes");
+const abClothesRoutes = require("./src/abclothes/routes");
 
 const port = 8008;
 
 
 app.use(express.json());
+app.use(helmet());
 app.use(cors({
     origin: '*'
 }));
-
 
 //route
 app.get("/", (req, res) => {
@@ -24,11 +28,8 @@ app.use("/api/login", loginRoutes);
 
 app.use("/api/clothes", clothesRoutes);
 
-app.post("/api/login/:accountID"), async (req, res) => {
-    const accountID = req.params.accountID;
-    const { username, password} = req.body;
+app.use("/api/lainclothes", lainClothesRoutes);
 
-    res.json({ success: true});
-}
+app.use("/api/abclothes", abClothesRoutes);
 
 app.listen(port, () => console.log(`running on ${port}`));

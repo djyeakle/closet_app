@@ -1,25 +1,25 @@
 const pool = require('../../db');
 const queries = require('./queries');
 
-const getClothes = (req, res) => {
-    pool.query(queries.getClothes,(error, results) => {
+const getAbClothes = (req, res) => {
+    pool.query(queries.getAbClothes,(error, results) => {
         if(error)throw error;
         res.status(200).json(results.rows);
     });
 };
 
-const addNewClothes = (req, res) => {
+const addNewAbClothes = (req, res) => {
     const {itemid,type,color,size,season,rating} = req.body;
 
-    pool.query(queries.addNewClothes, [itemid,type,color,size,season,rating], (error, results) => {
+    pool.query(queries.addNewAbClothes, [itemid,type,color,size,season,rating], (error, results) => {
         if(error)throw error;
         res.status(200).json(results.rows);
     });
 };
 
 module.exports = {
-    getClothes,
-    addNewClothes,
+    getAbClothes,
+    addNewAbClothes,
 };
 
 pool.connect((error, client, release) => {
