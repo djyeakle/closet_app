@@ -1,5 +1,6 @@
 const path = require('path');
 const cors = require('cors');
+const helmet = require('helmet');
 const express = require('express');
 const app = express();
 
@@ -13,6 +14,7 @@ const port = 8008;
 
 
 app.use(express.json());
+app.use(helmet());
 app.use(cors({
     origin: '*'
 }));
