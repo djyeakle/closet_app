@@ -3,6 +3,25 @@ const cors = require('cors');
 const helmet = require('helmet');
 const express = require('express');
 const app = express();
+const https = require("https");
+const fs = require("fs");
+
+const options = {
+    key: fs.readFileSync("server.key"),
+    cert: fs.readFileSync("server.cert")
+};
+
+// Create an HTTPS server
+https.createServer(options, app).listen(443, () => {
+    console.log("Secure server is running on https://localhost:8008");
+  });
+  
+  // Optional: Redirect HTTP to HTTPS
+  const http = require("http");
+  http.createServer((req, res) => {
+    res.writeHead(301, { Location: "https://" + req.headers.host + req.url });
+    res.end();
+  }).listen(80);
 
 //Routes
 const loginRoutes = require("./src/login/routes");
