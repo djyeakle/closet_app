@@ -9,6 +9,9 @@ const pool = new Pool({
     user: "djyeakle",
     password: "Sr4H9G5xicbGx8Qz6kLTokJEFFszGSkx",
     port: 5432,
+    ssl: {
+        rejectUnauthorized: false
+    }
     //database: "closet",
 });
 
