@@ -4,11 +4,11 @@ const pool = new Pool({
     //user: "postgres",
     //password: "vbnmrno4",
     //host: "localhost",
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    host: "dpg-cupqojpopnds73efuuso-a",
+    database: "closet_app",
+    user: "djyeakle",
+    password: "Sr4H9G5xicbGx8Qz6kLTokJEFFszGSkx",
+    port: 5432,
     //database: "closet",
 });
 
