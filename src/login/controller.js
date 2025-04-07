@@ -35,7 +35,7 @@ const addNewLogin = (req, res) => {
 
 //put
 const updateLogin = (req, res) => {
-    const accountid = parseInt(req.params.accountID);
+    const accountid = parseInt(req.params.id);
     const {username,password} = req.body;
 
     //pool.query(queries.updateLogin, [accountid], [username,password], (error, results) => {
